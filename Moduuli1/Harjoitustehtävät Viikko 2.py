@@ -1,3 +1,5 @@
+import random
+
 
 #VALINTA RAKENNE IF -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -81,4 +83,52 @@ tuumakoko = float(input("Anna tuumat : "))
 while tuumakoko >= 0:
     print(str(tuumakoko) + "  tuumaa on " + str(tuumakoko * 2.54) + " centtimetriä!")
     tuumakoko = float(input("Anna seuraava tuumakoko (Anna negatiivinen luku lopettaakseen ohjelman) : "))
+
+#TEHTÄVÄ 3
+
+numerot = []
+
+while True:
+    try:
+        käyttäjä_numerot = int(input("Anna numeroita : "))
+        numerot.append(käyttäjä_numerot)
+    except ValueError:
+        break
+
+sortatut_numerot = sorted(numerot)
+print(f"Pienin luku on {sortatut_numerot[0]} ja suurin on {sortatut_numerot[-1]}!")
+
+#TEHTÄVÄ 4
+
+randomi_numero = random.randint(1, 10)
+
+while True:
+    arvauspeli_numero = int(input("Arvaa numero : "))
+    if arvauspeli_numero < randomi_numero:
+        print("Numero liian pieni arvaa uudelleen")
+    if arvauspeli_numero > randomi_numero:
+        print("Numero liian suuri arvaa uudelleen")
+    if arvauspeli_numero == randomi_numero:
+        print("OIKEIN!")
+        break
+
+#TEHTÄVÄ 5
+
+
+käyttätunnukset_ja_salasanat = {"python": "rules"}
+kokeilu_kerrat = 0
+for i in range(0, 5):
+        käyttäjätunnus = input("Käyttäjätunnus : ")
+        salasana = input("Salasana :  ")
+        if käyttäjätunnus in käyttätunnukset_ja_salasanat and käyttätunnukset_ja_salasanat[käyttäjätunnus] == salasana:
+            print("Tervetuloa")
+            break
+        else:
+            kokeilu_kerrat += 1
+            print(f"Käyttäjätunnukset virheelliset. Yritä uudelleen. {5 - kokeilu_kerrat} kokeilua jäljellä. ")
+else:
+    print("Kaikki pääsykerrat käytetty. Pääsy evätty.")
+
+#TEHTÄVÄ 6
+
 
