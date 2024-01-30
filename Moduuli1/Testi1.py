@@ -1,14 +1,25 @@
+class Car:
+    def __init__(self, rekisteritunnus, huippunopeus):
+        self.rekisteritunnus = rekisteritunnus
+        self.huippunopeus = huippunopeus
+        self.tämäntekinennopeus = 0
+        self.kuljettumatka = 0
 
-käyttätunnukset_ja_salasanat = {"python": "rules"}
-kokeilu_kerrat = 0
-for i in range(0, 5):
-        käyttäjätunnus = input("Käyttäjätunnus : ")
-        salasana = input("Salasana :  ")
-        if käyttäjätunnus in käyttätunnukset_ja_salasanat and käyttätunnukset_ja_salasanat[käyttäjätunnus] == salasana:
-            print("Tervetuloa")
-            break
-        else:
-            kokeilu_kerrat += 1
-            print(f"Käyttäjätunnukset virheelliset. Yritä uudelleen. {5 - kokeilu_kerrat} kokeilua jäljellä. ")
-else:
-    print("Kaikki pääsykerrat käytetty. Pääsy evätty.")
+    def kiihdytä(self, nopeudenmuutos):
+        uusi_nopeus = self.tämäntekinennopeus + nopeudenmuutos
+        if 0 <= uusi_nopeus <= self.huippunopeus:
+            self.tämäntekinennopeus = uusi_nopeus
+
+    def __str__(self):
+        return (f"Rekisteritunnus: {self.rekisteritunnus}, "
+                f"Huippunopeus: {self.huippunopeus} km/h, "
+                f"Tämänhetkinen nopeus: {self.tämäntekinennopeus} km/h, "
+                f"Kuljettu matka: {self.kuljettumatka} km")
+
+# Luodaan auto ja tulostetaan sen tiedot
+auto1 = Car("ESH-107", 240)
+print(auto1)
+
+# Kiihdytetään autoa ja tulostetaan sen tiedot uudelleen
+auto1.kiihdytä(20)
+print(auto1)
