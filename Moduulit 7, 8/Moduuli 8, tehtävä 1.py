@@ -30,5 +30,4 @@ if results:
 else:
     print("Ei tuloksia löytynyt.")
 
-cur.close()
-conn.close()
+cur1 = conn.cursor()

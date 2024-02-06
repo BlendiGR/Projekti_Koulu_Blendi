@@ -1,3 +1,5 @@
+
+
 lentoasemat = {
     "Helsinki-Vantaan lentoasema": "EFHK",
     "Oulun lentoasema": "EFOU",
@@ -13,7 +15,7 @@ lentoasemat = {
 vastauksia1 = [
     "ei", "en halua", "en", "ei kiitos", "ei nyt", "ei tarvitse",
     "ei kiinnosta", "en ole kiinnostunut", "ei tällä kertaa", "ei, kiitos",
-    "ei tänään", "ehkä myöhemmin", "en nyt", "ei ehkä", "ei todellakaan"
+    "ei tänään", "ehkä myöhemmin", "en nyt", "ei ehkä", "ei todellakaan", "lopettaa", "lopeta"
 ]
 
 vastauksia2 = [
@@ -31,14 +33,14 @@ vastauksia3 = [
 
 def lentoasemahakija():
     while True:
-        inputti = input("Haluatko etsiä lentoaseman, syöttää uuden vai lopettaa? : ").lower().strip()
+        inputti = input("Haluatko etsiä lentoaseman, syöttää uuden vai lopettaa? : \n").lower().strip()
 
         if inputti in vastauksia1:
             print("Toiminto lopetettu")
             break
 
         elif inputti in vastauksia2:
-            kysynimi = input("Mikä on lentokentän nimi? : ").lower().strip()
+            kysynimi = input("Mikä on lentokentän nimi? : ").title().strip()
             kysyICAO = input("Mikä on lentokentän ICAO koodi? : ").upper().strip()
 
             if kysynimi and kysyICAO:
@@ -64,3 +66,5 @@ def lentoasemahakija():
 
 
 lentoasemahakija()
+print(lentoasemat)
+
